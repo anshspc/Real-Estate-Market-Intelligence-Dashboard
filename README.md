@@ -225,3 +225,14 @@ To deploy your Streamlit dashboard to a live URL using **Render (render.com)**:
 * **Focus on East Austin (Austin)**: Average Investment Score of **8.3** highlights strong entry valuations combined with massive search interest.
 * **Allocate Capital to Coral Gables (Miami)**: A premium residential district exhibiting low price elasticity and high rating score stability.
 * **Price Validation via ML**: Deploy the Random Forest regression model to broker apps to prevent listing price errors and capture value spreads in real-time.
+
+---
+
+## 🤝 Connect & Collaborate
+
+Have any questions about this project, or want to discuss business intelligence, data science, or analyst opportunities? Feel free to reach out:
+
+* **Developer**: **Ansh Shukla**
+* **LinkedIn**: [linkedin.com/in/ansh-shukla-656a211b4](https://www.linkedin.com/in/ansh-shukla-656a211b4)
+* **Email**: [ianshshuklaoffc@gmail.com](mailto:ianshshuklaoffc@gmail.com)
+* **GitHub Profile**: [@anshspc](https://github.com/anshspc)

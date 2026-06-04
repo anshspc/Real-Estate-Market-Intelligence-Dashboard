@@ -97,6 +97,13 @@ else:
     statuses = ['All'] + sorted(df['Status'].unique().tolist())
     selected_status = st.sidebar.selectbox("Select Status", statuses)
     
+    # Sidebar Developer Profile
+    st.sidebar.markdown("---")
+    st.sidebar.markdown("### 👤 Developer Profile")
+    st.sidebar.markdown("**Ansh Shukla**")
+    st.sidebar.markdown("💼 [LinkedIn](https://www.linkedin.com/in/ansh-shukla-656a211b4/)")
+    st.sidebar.markdown("✉️ [Email](mailto:ianshshuklaoffc@gmail.com)")
+    
     # Filter dataset
     filtered_df = df.copy()
     if selected_city != 'All':

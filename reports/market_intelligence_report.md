@@ -1,6 +1,6 @@
 # Real Estate Market Intelligence Report
 **Prepared for:** Executive Leadership, Real Estate Investors, and Sales Directors  
-**Authorship:** Senior Business Analyst & Data Science Lead  
+**Authorship:** **Ansh Shukla** (Senior Business Analyst & Data Science Lead)  
 **Reporting Period:** 2024 - 2025 (Historical & Active listings)  
 **Date of Report:** June 2026
 
