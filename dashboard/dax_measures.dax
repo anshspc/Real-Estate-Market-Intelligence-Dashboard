@@ -1,0 +1,93 @@
+// ==========================================
+// REAL ESTATE MARKET INTELLIGENCE DAX MEASURES
+// ==========================================
+
+// 1. Core KPIs
+Total Listings = COUNTROWS('cleaned_properties')
+
+Active Listings = CALCULATE([Total Listings], 'cleaned_properties'[Status] = "Active")
+
+Sold Properties = CALCULATE([Total Listings], 'cleaned_properties'[Status] = "Sold")
+
+Average Price = AVERAGE('cleaned_properties'[Price_USD])
+
+Average Area (SqFt) = AVERAGE('cleaned_properties'[Area_SqFt])
+
+Average Price per SqFt = DIVIDE([Average Price], [Average Area (SqFt)], 0)
+
+
+// 2. Market Dynamics
+Average Demand Score = AVERAGE('cleaned_properties'[Demand_Score])
+
+Average Customer Rating = AVERAGE('cleaned_properties'[Customer_Rating])
+
+
+// 3. Locality Comparison Metrics
+City Average Price per SqFt = 
+CALCULATE(
+    [Average Price per SqFt],
+    ALLSELECTED('cleaned_properties'[Locality])
+)
+
+Locality Premium Index = 
+DIVIDE(
+    [Average Price per SqFt] - [City Average Price per SqFt],
+    [City Average Price per SqFt],
+    0
+)
+// Highlights whether a locality is overpriced (+ve) or undervalued (-ve) compared to city average.
+
+
+// 4. Advanced Opportunity Scoring in Power BI
+// Weighted Index to find undervalued, high-demand areas.
+BI Investment Opportunity Score = 
+VAR AvgDemand = [Average Demand Score]
+VAR AvgRating = [Average Customer_Rating]
+VAR PriceSqFt = [Average Price per SqFt]
+VAR CityPriceSqFt = [City Average Price per SqFt]
+VAR PriceRatio = DIVIDE(PriceSqFt, CityPriceSqFt, 1)
+
+// Scoring weights:
+// Demand Score (40%), Customer Rating scaled (30%), Price Ratio Value scaled (30%)
+VAR Score = 
+    (AvgDemand * 0.40) + 
+    ((AvgRating * 2) * 0.30) + 
+    ((2 - IF(PriceRatio > 2, 2, PriceRatio)) * 5 * 0.30)
+
+RETURN
+    IF(
+        ISBLANK([Average Price]), 
+        BLANK(), 
+        ROUND(Score, 1)
+    )
+
+
+// 5. Time Intelligence & Sales Performance
+Total Revenue = SUM('cleaned_properties'[Price_USD])
+
+Sold Revenue = CALCULATE([Total Revenue], 'cleaned_properties'[Status] = "Sold")
+
+// Sales Period Growth (assuming a Calendar table joined on Listing_Date)
+Revenue YTD = CALCULATE([Sold Revenue], DATESYTD('Calendar'[Date]))
+
+Revenue PYTD = CALCULATE([Sold Revenue], SAMEPERIODLASTYEAR('Calendar'[Date]))
+
+YoY Revenue Growth % = 
+DIVIDE(
+    [Revenue YTD] - [Revenue PYTD],
+    [Revenue PYTD],
+    0
+)
+
+
+// 6. Dynamic Visual Formatting Rules (for conditional colors)
+Opportunity Color Alert = 
+VAR Score = [BI Investment Opportunity Score]
+RETURN
+    SWITCH(
+        TRUE(),
+        Score >= 8.0, "#00FF66", // High Potential (Bright Green)
+        Score >= 6.0, "#FFA500", // Moderate (Orange)
+        Score > 0, "#FF3333",    // Low Potential (Red)
+        "#FFFFFF"                // Default White
+    )

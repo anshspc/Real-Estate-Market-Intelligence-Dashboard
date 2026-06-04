@@ -1,0 +1,22 @@
+# Render Blueprint specification for automatic deployment
+services:
+  - type: web
+    name: real-estate-market-intelligence
+    env: python
+    # Select Python version (Render defaults to 3.10 if not specified, which is fine)
+    # pythonVersion: 3.10.12
+    
+    # Build command to install dependencies
+    buildCommand: pip install -r requirements.txt
+    
+    # Start command for Streamlit web app
+    # Streamlit requires binding to the dynamic port ($PORT) provided by Render and 0.0.0.0 address
+    startCommand: streamlit run dashboard/app.py --server.port $PORT --server.address 0.0.0.0
+    
+    # Render plan (free tier is default)
+    plan: free
+    
+    # Environment variables
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
