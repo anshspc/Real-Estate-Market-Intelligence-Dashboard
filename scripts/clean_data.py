@@ -4,8 +4,9 @@ import numpy as np
 from datetime import datetime
 
 def clean_real_estate_data():
-    raw_path = "/Users/babyshark/.gemini/antigravity/scratch/real-estate-market-intelligence-dashboard/data/raw_properties.csv"
-    cleaned_path = "/Users/babyshark/.gemini/antigravity/scratch/real-estate-market-intelligence-dashboard/data/cleaned_properties.csv"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    raw_path = os.path.join(base_dir, "data", "raw_properties.csv")
+    cleaned_path = os.path.join(base_dir, "data", "cleaned_properties.csv")
     
     if not os.path.exists(raw_path):
         raise FileNotFoundError(f"Raw data file not found at {raw_path}. Run generate_raw_data.py first.")

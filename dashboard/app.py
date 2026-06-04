@@ -54,7 +54,8 @@ st.markdown("""
 # Helper function to load data
 @st.cache_data
 def load_data():
-    data_path = "/Users/babyshark/.gemini/antigravity/scratch/real-estate-market-intelligence-dashboard/data/cleaned_properties.csv"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    data_path = os.path.join(base_dir, "data", "cleaned_properties.csv")
     if not os.path.exists(data_path):
         return None
     df = pd.read_csv(data_path)
@@ -63,7 +64,8 @@ def load_data():
 # Helper function to load model
 @st.cache_resource
 def load_model():
-    model_path = "/Users/babyshark/.gemini/antigravity/scratch/real-estate-market-intelligence-dashboard/models/price_predictor.joblib"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    model_path = os.path.join(base_dir, "models", "price_predictor.joblib")
     if not os.path.exists(model_path):
         return None
     try:

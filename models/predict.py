@@ -45,7 +45,7 @@ def main():
             bathrooms = 2
         age = args.age
         
-    model_path = "/Users/babyshark/.gemini/antigravity/scratch/real-estate-market-intelligence-dashboard/models/price_predictor.joblib"
+    model_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "price_predictor.joblib")
     
     if not os.path.exists(model_path):
         print(f"Error: Trained model file not found at '{model_path}'.", file=sys.stderr)

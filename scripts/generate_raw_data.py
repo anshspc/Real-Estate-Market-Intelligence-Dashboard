@@ -203,7 +203,8 @@ if __name__ == "__main__":
     print("Generating raw real estate dataset...")
     df = generate_messy_data(3500)
     
-    output_dir = "/Users/babyshark/.gemini/antigravity/scratch/real-estate-market-intelligence-dashboard/data"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    output_dir = os.path.join(base_dir, "data")
     os.makedirs(output_dir, exist_ok=True)
     
     output_path = os.path.join(output_dir, "raw_properties.csv")

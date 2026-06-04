@@ -2,7 +2,8 @@ import os
 import json
 
 def create_notebooks():
-    nb_dir = "/Users/babyshark/.gemini/antigravity/scratch/real-estate-market-intelligence-dashboard/notebooks"
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    nb_dir = os.path.join(base_dir, "notebooks")
     os.makedirs(nb_dir, exist_ok=True)
     
     # -------------------------------------------------------------
