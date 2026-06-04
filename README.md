@@ -1,10 +1,19 @@
 # Real Estate Market Intelligence Dashboard
 
-[![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Pandas](https://img.shields.io/badge/Pandas-2.0+-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-[![Scikit-Learn](https://img.shields.io/badge/scikit_learn-1.2+-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.25+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
-[![Power BI](https://img.shields.io/badge/Power_BI-Analytics-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)](https://powerbi.microsoft.com/)
+<div align="center">
+
+  [![Live App](https://img.shields.io/badge/Live_Dashboard-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://real-estate-market-intelligence.onrender.com)
+  [![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+  [![Streamlit](https://img.shields.io/badge/Streamlit-1.25+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
+  [![Power BI](https://img.shields.io/badge/Power_BI-Analytics-F2C811?style=for-the-badge&logo=power-bi&logoColor=black)](https://powerbi.microsoft.com/)
+
+  <h3>🌟 Production-Grade Business Analytics & Predictive Valuation Engine 🌟</h3>
+
+  [🌐 Open Live Dashboard](https://real-estate-market-intelligence.onrender.com) | [📊 BI Implementation Guide](./dashboard/power_bi_guide.md) | [📈 Executive Insights Report](./reports/market_intelligence_report.md)
+
+</div>
+
+---
 
 A production-grade, end-to-end business intelligence and predictive machine learning solution designed for real estate executives, brokers, and institutional investors. This repository demonstrates a complete data pipeline: from raw, messy data injection and cleaning to exploratory data analysis (EDA), predictive regression modeling, custom metric engineering, and dynamic dashboard creation.
 
